@@ -1,0 +1,304 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Custom Properties - Used frequently */
+:root {
+  --primary-color: #fcf5e9;
+  --dark-color: #333;
+  --container-normal: 1100px;
+  --container-wide: 1400px;
+  --container-narrow: 900px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  /* Almost Mandatory for all projects */
+  text-decoration: none;
+  color: #333;
+}
+
+ul {
+  /* Almost Mandatory for all projects */
+  list-style: none;
+}
+
+img {
+  /* Almost Mandatory for all projects */
+  max-width: 100%;
+}
+
+/* Utility Classes */
+.bg-primary {
+  /* background-color: #fcf5e9 -> instead use var(--primary-color) */
+  background-color: var(--primary-color);
+  color: #333;
+}
+
+.bg-dark {
+  background: var(--dark-color);
+  color: #fff;
+}
+
+.bg-dark .bg-primary {
+  padding: 0 0.3rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-family: inherit;
+  border: 1px solid #333;
+  background: transparent;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #333;
+  color: #fff;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.section-heading {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Container */
+.container {
+  max-width: var(--container-normal);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.container-lg {
+  max-width: var(--container-wide);
+}
+
+.container-sm {
+  max-width: var(--container-narrow);
+}
+
+/* Header */
+.header {
+  margin: 1.5rem auto;
+}
+
+.header .logo {
+  width: 130px;
+}
+
+.header .header-flex {
+  /* First the item were to-bottom flex - changes it to left right */
+  display: flex;
+  justify-content: space-between;
+  /* Reduce stretchness */
+  align-items: center;
+}
+
+/* Main menu must be side by side and space between them */
+.header .main-menu {
+  display: flex;
+  gap: 1rem;
+}
+
+.header .main-menu li a {
+  padding: 0.5rem 1rem;
+}
+
+.header .main-menu li a:hover {
+  /* background-color: #fcf5e9 -> instead use var(--primary-color) */
+  background-color: var(--primary-color);
+}
+
+.current {
+  /* background-color: #fcf5e9 -> instead use var(--primary-color) */
+  background-color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Hero */
+.hero {
+  /* 500px is height of container */
+  height: 500px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h2 {
+  font-weight: normal;
+  font-size: 3rem;
+  line-height: 1.4;
+}
+
+.gallery-flex {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery-item {
+  /* Shows 3 images */
+  width: calc(33.333% - 20px);
+  border-radius: 10px;
+}
+
+.gallery-item img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.gallery-item:hover {
+  opacity: 0.9;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid #aaa;
+  padding: 2rem 1.5rem;
+  margin-top: 2rem;
+}
+
+.footer .footer-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer img {
+  width: 120px;
+  height: 35px;
+}
+
+.footer h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer a {
+  margin: 0.2rem;
+}
+
+/* Services */
+.services {
+  padding: 3rem 0 4rem;
+}
+
+.services-flex {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.service-item {
+  font-size: 1.1rem;
+  margin-bottom: 0.7rem;
+}
+
+/* Team */
+.team {
+  padding: 3rem 0 4rem;
+}
+
+.team-flex {
+  display: flex;
+  gap: 1.4rem;
+  justify-content: center;
+}
+
+.team img {
+  border-radius: 18px;
+}
+
+.team-item {
+  text-align: center;
+}
+
+/* Contact */
+.contact-form {
+  padding: 3rem 0 4rem;
+}
+
+.contact-form p {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin: 2rem 0;
+}
+
+.contact-form input, .contact-form textarea {
+  border: none;
+  border-bottom: 1px solid #333;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  padding-bottom: 1rem;
+}
+
+.contact-form textarea {
+  height: 200px;
+}
+
+/* To remove border when click on input use focus */
+.contact-form input:focus, .contact-form textarea:focus {
+  outline: 0;
+}
+
+.contact-form button {
+  width: 100%;
+}
+
+/* Media Queries */
+/* Make Responsive for Smaller screen using Media Queries */
+@media (max-width: 768px) {
+  /* Header nav bar collides with logo so shift nav bar bottom of logo with gap */
+  .header .header-flex , .footer .footer-flex , .services .services-flex , .team .team-flex {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* Hero container looks bigger on small screen so decrease values */
+  .hero {
+    height: 300px;
+  }
+
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+
+  /* Shows 2 images on smaller screen */
+  .gallery-item {
+    width: calc(50% - 20px);
+  }
+
+  .footer .footer-flex {
+    text-align: center;
+  }
+}
